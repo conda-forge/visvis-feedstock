@@ -7,7 +7,7 @@ package:
 source:
   fn: visvis-{{ version }}.zip
   url: https://pypi.python.org/packages/83/63/68eb3eb906cf94c78079136d96bff1c9515ec998a73c61f364b1fd97b3c2/visvis-1.9.4.zip
-  md5=004b91ddf34c0cdb035eb0dc66421578
+  md5: 004b91ddf34c0cdb035eb0dc66421578
 
 build:
   script: python setup.py install

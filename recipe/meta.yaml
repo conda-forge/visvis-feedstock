@@ -1,4 +1,4 @@
-{% set version = "1.9.3" %}
+{% set version = "1.9.4" %}
 
 package:
   name: visvis
@@ -6,8 +6,8 @@ package:
 
 source:
   fn: visvis-{{ version }}.zip
-  url: https://pypi.python.org/packages/91/6e/ffc2902c110de7f223ce8dff2befad266b0fe3ff4c78516fcdf1de03bd5f/visvis-{{ version }}.zip
-  md5: b63aa22318cd25b6db6cd9b47b20e3ee
+  url: https://pypi.python.org/packages/83/63/68eb3eb906cf94c78079136d96bff1c9515ec998a73c61f364b1fd97b3c2/visvis-{{ version }}.zip
+  md5: 004b91ddf34c0cdb035eb0dc66421578
 
 build:
   script: python setup.py install

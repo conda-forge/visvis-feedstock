@@ -1,17 +1,22 @@
-{% set version = "1.9.3" %}
+# Info that changes with each new release
+# (get sha256 from https://pypi.org/project/visvis/#files)
+
+{% set version = "1.10.0" %}
+{% set sha256 = "1b6703c19b9e51c524c88901b8524b16bc071f55b00443455a568975bf22dd74" %}
+{% set download_path = "9e/1b/7f909e283fcb5207ba49c687a45519ff69b28d7035dc523257f64c6a0105" %}
 
 package:
   name: visvis
   version: {{ version }}
 
 source:
-  fn: visvis-{{ version }}.zip
-  url: https://pypi.python.org/packages/91/6e/ffc2902c110de7f223ce8dff2befad266b0fe3ff4c78516fcdf1de03bd5f/visvis-{{ version }}.zip
-  md5: b63aa22318cd25b6db6cd9b47b20e3ee
+  fn: visvis-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/{{download_path}}/visvis-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   script: python setup.py install
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -24,12 +29,14 @@ requirements:
 test:
   imports:
     - visvis
+    - visvis.vvio
+    - visvis.processing
 
 about:
   home: https://github.com/almarklein/visvis
   doc_url: https://github.com/almarklein/visvis/wiki
   dev_url: https://github.com/almarklein/visvis
-  summary: The object oriented approach to visualization
+  summary: Visvis - the object oriented approach to visualization
   license: BSD 3-Clause
 
 extra:

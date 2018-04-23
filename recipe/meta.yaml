@@ -1,26 +1,25 @@
-# Info that changes with each new release
-# (get sha256 from https://pypi.org/project/visvis/#files)
-
-{% set version = "1.10.0" %}
-{% set sha256 = "1b6703c19b9e51c524c88901b8524b16bc071f55b00443455a568975bf22dd74" %}
-{% set download_path = "9e/1b/7f909e283fcb5207ba49c687a45519ff69b28d7035dc523257f64c6a0105" %}
+{% set name = "visvis" %}
+{% set version = "1.11.1" %}
+{% set sha256 = "5c659146e7db7183de3921ada363d51bbfee295aee2cff6a4116d1f04055ef1b" %}
 
 package:
-  name: visvis
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: visvis-{{ version }}.tar.gz
-  url: https://files.pythonhosted.org/packages/{{download_path}}/visvis-{{ version }}.tar.gz
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  script: python setup.py install
-  number: 2
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+  number: 0
 
 requirements:
   build:
     - python
+    - pip
   run:
     - python
     - numpy
@@ -29,7 +28,6 @@ requirements:
 test:
   imports:
     - visvis
-    - visvis.vvio
     - visvis.processing
 
 about:

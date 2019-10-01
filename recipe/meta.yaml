@@ -1,6 +1,6 @@
 {% set name = "visvis" %}
-{% set version = "1.11.1" %}
-{% set sha256 = "5c659146e7db7183de3921ada363d51bbfee295aee2cff6a4116d1f04055ef1b" %}
+{% set version = "1.11.3" %}
+{% set sha256 = "b2bfb4142b214e50db62e0813c05de8e16c5a4c29e37e101476a56b8750c9533" %}
 
 package:
   name: {{ name }}
@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   number: 0
 
 requirements:

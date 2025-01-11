@@ -8,24 +8,26 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
-  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 1
 
 requirements:
-  build:
-    - python
+  host:
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - numpy
     - pyopengl
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - visvis
     - visvis.processing
@@ -36,6 +38,7 @@ about:
   dev_url: https://github.com/almarklein/visvis
   summary: Visvis - the object oriented approach to visualization
   license: BSD 3-Clause
+  license_file: license.txt
 
 extra:
   recipe-maintainers:
